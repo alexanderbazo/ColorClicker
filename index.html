@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ColorClicker</title>
+        <link rel="stylesheet" href="res/css/styles.css">
+    </head>
+
+    <body>
+        
+        <div id="info">
+            <span class="score">
+                <span class="current">00</span>
+                <span class="highscore"></span>
+            </span>
+            <span class="title">Color Clicker</span>
+        </div>
+        
+        <div id="board"></div>
+        
+        <div id="footer"><a href="http://www.mi.ur.de" target="_new">Lehrstuhl für Medieninformatik</a> - Uni Regensburg - 2014</div>
+
+        <script src="libs/jquery-2.1.1.js"></script>
+        <script src="src/ColorClicker.js"></script>
+        <script src="src/ColorClickerView.js"></script>
+        <script src="src/ColorClickerGameController.js"></script>
+        
+        <script>
+            ColorClicker.init();
+        </script>
+    </body>
+</html>
