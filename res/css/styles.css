@@ -1,10 +1,7 @@
 @font-face {
     font-family: "segoeui_light";
     src: url("../fonts/segoeuil-webfont.eot");
-    src: url("../fonts/segoeuil-webfont.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/segoeuil-webfont.woff") format("woff"),
-         url("../fonts/segoeuil-webfont.ttf") format("truetype"),
-         url("../fonts/segoeuil-webfont.svg#segoeui_light") format("svg");
+    src: url("../fonts/segoeuil-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/segoeuil-webfont.woff") format("woff"), url("../fonts/segoeuil-webfont.ttf") format("truetype"), url("../fonts/segoeuil-webfont.svg#segoeui_light") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -19,16 +16,14 @@ body {
     text-align: center;
 }
 
-
-
 #info {
     width: 100%;
     height: 50px;
-    background-color: rgba(30,30,30,0.9);
+    background-color: rgba(30, 30, 30, 0.9);
     line-height: 50px;
     font-size: 30px;
     text-align: center;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
 #info .score {
@@ -37,12 +32,11 @@ body {
     width: 20%;
 }
 
-#info .score .current {
-}
+#info .score .current {}
 
 #info .score .highscore {
     font-size: 15px;
-    color: rgba(220,120,0,1);
+    color: rgba(220, 120, 0, 1);
 }
 
 #info .title {
@@ -63,7 +57,14 @@ body {
     width: 80px;
     height: 80px;
     margin: 10px;
-    background-color: rgb(249,156,188);
+    background-color: rgb(249, 156, 188);
+    transition: opacity .75s ease-in-out;
+    -moz-transition: opacity .75s ease-in-out;
+    -webkit-transition: opacity .75s ease-in-out;
+}
+
+#board .box.reveal {
+    opacity: 0;
 }
 
 #board .box:hover {

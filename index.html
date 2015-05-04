@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>ColorClicker</title>
-        <link rel="stylesheet" href="res/css/styles.css">
-    </head>
 
-    <body>
-        
-        <div id="info">
-            <span class="score">
+<head>
+    <meta charset="utf-8">
+    <title>ColorClicker</title>
+    <link rel="stylesheet" href="res/css/styles.css">
+</head>
+
+<body>
+
+    <a href="https://github.com/alexanderbazo/ColorClicker"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+
+    <div id="info">
+        <span class="score">
                 <span class="current">00</span>
-                <span class="highscore"></span>
-            </span>
-            <span class="title">Color Clicker</span>
-        </div>
-        
-        <div id="board"></div>
-        
-        <div id="footer"><a href="http://www.mi.ur.de" target="_new">Lehrstuhl für Medieninformatik</a> - Uni Regensburg - 2014<br /><a href="https://github.com/alexanderbazo/ColorClicker/tree/master" target="_new">Source (github)</a></div>
+        <span class="highscore"></span>
+        </span>
+        <span class="title">Color Clicker</span>
+    </div>
 
-        <script src="libs/jquery-2.1.1.js"></script>
-        <script src="src/ColorClicker.js"></script>
-        <script src="src/ColorClickerView.js"></script>
-        <script src="src/ColorClickerGameController.js"></script>
-        
-        <script>
-            ColorClicker.init();
-        </script>
-    </body>
+    <div id="board"></div>
+
+    <div id="footer"><a href="http://www.mi.ur.de" target="_new">Lehrstuhl für Medieninformatik</a> - Uni Regensburg - 2014
+        <br /><a href="https://github.com/alexanderbazo/ColorClicker/tree/master" target="_new">Source (github)</a> | A JS implementation of Peter Lauris <a href="http://gamejolt.com/games/other/color-picker/35110/" target="_new">Color Picker</a>
+    </div>
+
+    <script src="src/ViewController.js"></script>
+    <script src="src/GameController.js"></script>
+    <script src="src/ColorClicker.js"></script>
+
+    <script>
+        ColorClicker.start();
+    </script>
+</body>
+
 </html>
