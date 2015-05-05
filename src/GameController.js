@@ -3,7 +3,16 @@
  * @author Alexander Bazo <alexanderbazo@googlemail.com>
  * @version 1.1
  */
+
+/**
+ * @namespace ColorClicker
+ */
 var ColorClicker = ColorClicker || {};
+
+/**
+ * @namespace GameController
+ * @memberof ColorClicker
+ */
 ColorClicker.GameController = (function () {
     "use strict";
     /* eslint-env browser */
@@ -11,17 +20,21 @@ ColorClicker.GameController = (function () {
         currentLevel,
         view;
 
-    /*
-     * Loads the current highscore from localstorage into the highscore member
+    /**
      * @private
+     * @function loadHighscore
+     * @memberof ColorClicker.GameController
+     * @description Loads the current highscore from localstorage into the highscore member
      */
     function loadHighscore() {
         return localStorage.getItem(config.highscoreStorageKey);
     }
 
-    /*
-     * Saves the current highscore from the currentLevel member to localstorage and the highscore member
+    /**
      * @private
+     * @function saveHighscore
+     * @memberof ColorClicker.GameController
+     * @description Saves the current highscore from the currentLevel member to localstorage and the highscore member
      */
     function saveHighscore() {
         var highscore = loadHighscore();
@@ -30,13 +43,15 @@ ColorClicker.GameController = (function () {
         }
     }
 
-    /*
-     * Initializes a new game round.
+    /**
      * @private
-     * @param {Number} currentLevel
-     * @param {Number} boxCount Number of boxes displayed in this round.
-     * @param {Object} color The color used to draw the boxes in this round.
-     * @param {Number} deviation Color deviation for this round.
+     * @function initGame
+     * @memberof ColorClicker.GameController
+     * @description Initializes a new game round
+     * @param {Number} startLevel Level-Index to start with
+     * @param {Number} boxCount Number of boxes displayed in this round
+     * @param {Object} color Color used to draw the boxes in this round
+     * @param {Number} deviation Color deviation for this round
      */
     function initGame(startLevel, boxCount, color, deviation) {
         var highscore = loadHighscore();
@@ -46,8 +61,9 @@ ColorClicker.GameController = (function () {
     }
 
     /**
-     * Starts a new round by initializing the next level, based on the current value of currentLevel
-     * @callback startNewGameCallback
+     * @function startNextRound
+     * @memberof ColorClicker.GameController
+     * @description Starts a new round by initializing the next level
      */
     function startNextRound() {
         var boxCount = config.defaultBoxCount,
@@ -69,18 +85,21 @@ ColorClicker.GameController = (function () {
         initGame(currentLevel, boxCount, color, deviation);
     }
 
-    /*
-     * Resets the game by setting the current level to 0
+    /**
      * @private
+     * @function resetGame
+     * @memberof ColorClicker.GameController
+     * @description Resets the game by setting the current level to 0
      */
     function resetGame() {
         currentLevel = 0;
     }
 
     /**
-     * Starts a new game by initializing the first level
-     * @callback startNewGameCallback
-     * @private
+     * @public
+     * @function startNewGame
+     * @memberof ColorClicker.GameController
+     * @description Starts a new game by initializing the first level
      */
     function startNewGame() {
         var color = ColorClicker.Color.getRandomColor();
@@ -89,20 +108,27 @@ ColorClicker.GameController = (function () {
         initGame(currentLevel, config.defaultBoxCount, color, config.defaultBoxDeviation);
     }
 
-    /**
-     * @callback onTargetBoxClicked
-     */
     function onTargetBoxClicked() {
         startNextRound();
     }
 
-    /**
-     * @callback onNonTargetBoxClicked
-     */
     function onNonTargetBoxClicked() {
         view.revealTarget(startNewGame);
     }
 
+    /**
+     * @public
+     * @function init
+     * @memberof ColorClicker.GameController
+     * @param {Object} gameConfig Configuration object
+     * @param gameConfig.highscoreStorageKey Access key to get/store the highscore in local storage
+     * @param gameConfig.defaultBoxDeviation Default rgb deviation between box color and target color
+     * @param gameConfig.defaultBoxCount Default number of boxes
+     * @param gameConfig.minimalDeviation Minimal color deviation
+     * @param gameConfig.deviationFactor Factor used to calculate color deviation decrease for each level
+     * @param gameConfig.boxesPerLevel Array with number of boxes for each level
+     * @param {Object} viewController ViewController to be used by this module
+     */
     function init(gameConfig, viewController) {
         var viewConfig = {
             boxesPerRow: 8,

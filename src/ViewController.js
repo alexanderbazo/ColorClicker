@@ -3,7 +3,16 @@
  * @author Alexander Bazo <alexanderbazo@googlemail.com>
  * @version 1.1
  */
+
+/**
+ * @namespace ColorClicker
+ */
 var ColorClicker = ColorClicker || {};
+
+/**
+ * @namespace ViewController
+ * @memberof ColorClicker
+ */
 ColorClicker.ViewController = (function () {
     "use strict";
     /* eslint-env browser */
@@ -128,7 +137,7 @@ ColorClicker.ViewController = (function () {
      * @param {Number} newHighscore The current highscore.
      */
     function setScore(newScore, newHighscore) {
-        config.highscoreView.innerHTML = newScore;
+        config.scoreView.innerHTML = newScore;
         if (newHighscore > 0) {
             config.highscoreView.innerHTML = "Best: " + newHighscore;
         }

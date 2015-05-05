@@ -3,6 +3,10 @@
  * @author Alexander Bazo <alexanderbazo@googlemail.com>
  * @version 1.1
  */
+
+/**
+ * @namespace ColorClicker
+ */
 var ColorClicker = ColorClicker || {};
 (function () {
     "use strict";
